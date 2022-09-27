@@ -1,6 +1,6 @@
-# project_name
+# Health Insurance Cross Sell
 
-## This project aims to order potential clients
+## This project aims to order potential clients.
 
 #### This project was made by Matheus Andrade.
 
@@ -48,7 +48,7 @@ My strategy to solve this challenge was:
 
 # 5. Machine Learning Model Applied
 
-# 6. Machine Learning Modelo Performance
+# 6. Machine Learning Model Performance
 
 # 7. Business Results
 
