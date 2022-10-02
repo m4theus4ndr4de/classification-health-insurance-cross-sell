@@ -1,16 +1,16 @@
+import os
 import pickle
 import pandas as pd
 from flask import Flask, request, Response
-from HealthInsurance import HealthInsurance
+from healthinsurance.HealthInsurance import HealthInsurance
 
 # loading model
-path = '/Users/meigarom.lopes/repos/pa004_health_insurance_cross_sell/health_insurance_cross-sell/'
-model = pickle.load(open(path + 'src/models/model_health_insurance.pkl', 'rb'))
+model = pickle.load(open('models/model_xgb.pkl', 'rb'))
 
 # initialize API
 app = Flask(__name__)
 
-@app.route('predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def health_insurance_predict():
     test_json = request.get_json()
     
@@ -21,7 +21,7 @@ def health_insurance_predict():
         else: # multiple example
             test_raw = pd.DataFrame(test_json, columns=test_json[0].keys())
             
-        # Instantiate Rossmann class
+        # Instantiate HealthInsurance class
         pipeline = HealthInsurance()
         
         # data cleaning
@@ -42,4 +42,5 @@ def health_insurance_predict():
         return Response('{}', status=200, mimetype='application/json')
     
 if __name__ == '__main__':
-    app.run('0.0.0.0', debug=True)
+    port = os.environ.get('PORT', 5000)
+    app.run('0.0.0.0', port=port)

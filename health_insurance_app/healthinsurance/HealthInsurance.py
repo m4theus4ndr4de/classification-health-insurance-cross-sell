@@ -21,7 +21,6 @@ class HealthInsurance:
         df1.columns = cols_new
         
         return df1 
-
     
     def feature_engineering(self, df2):
         # 2.0. Feature Engineering
@@ -33,7 +32,6 @@ class HealthInsurance:
         df2['vehicle_age'] =  df2['vehicle_age'].apply(lambda x: 'over_2_years' if x == '> 2 Years' else 'between_1_2_year' if x == '1-2 Year' else 'below_1_year')
         
         return df2
-    
     
     def data_preparation(self, df5):
         # anual premium - StandarScaler
@@ -61,7 +59,6 @@ class HealthInsurance:
         cols_selected = ['annual_premium', 'vintage', 'age', 'region_code', 'vehicle_damage', 'previously_insured', 'policy_sales_channel']
         
         return df5[cols_selected]
-    
     
     def get_prediction(self, model, original_data, test_data):
         # model prediction
