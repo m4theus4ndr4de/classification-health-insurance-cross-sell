@@ -1,57 +1,55 @@
-// PA004 Health Insurance Cross-sell
+// Health Insurance Cross-sell
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu( 'Health Insurance Prediction' )
-    .addItem( 'Get Prediction', 'PredictAll')
+  ui.createMenu('Health Insurance Prediction')
+    .addItem('Get Prediction', 'PredictAll')
     .addToUi();  
 }
 
 // Production Server
-host_production = 'health-insurance-model.herokuapp.com'
+host_production = 'health-insurance-app-ma.herokuapp.com'
 
-// ----------------------------
-// ----- Helper Function ------
-// ----------------------------
 // API Call
-function ApiCall( data, endpoint ){
+function ApiCall(data, endpoint){
   var url = 'https://' + host_production + endpoint;
-  var payload = JSON.stringify( data );
+  var payload = JSON.stringify(data);
 
   var options = {'method': 'POST', 'contentType': 'application/json', 'payload': payload};
 
-  Logger.log( url )
-  Logger.log( options )
+  Logger.log(url)
+  Logger.log(options)
 
-  var response = UrlFetchApp.fetch( url, options );
+  var response = UrlFetchApp.fetch(url, options);
 
   // get response
   var rc = response.getResponseCode();
   var responseText = response.getContentText();
 
   if ( rc !== 200 ){
-    Logger.log( 'Response (%s) %s', rc, responseText );
+    Logger.log('Response (%s) %s', rc, responseText);
   }
   else{
-    prediction = JSON.parse( responseText );
+    prediction = JSON.parse(responseText);
   }
   return prediction
 };
 
 // Health Insurance Propensity Score Prediction
 function PredictAll(){
+  
   //google sheets parameters
   var ss = SpreadsheetApp.getActiveSheet();
-  var titleColumns = ss.getRange( 'A1:L1' ).getValues()[0];
+  var titleColumns = ss.getRange('A1:K1').getValues()[0];
   var lastRow = ss.getLastRow();
   
-  var data = ss.getRange( 'A2' + ':' + 'L' + lastRow ).getValues();
+  var data = ss.getRange('A2' + ':' + 'K' + lastRow).getValues();
 
   // run over all rows
-  for ( row in data ){
+  for (row in data){
     var json = new Object();
 
     // run over all columns
-    for( var j=0; j < titleColumns.length; j++ ){
+    for(var j=0; j < titleColumns.length; j++){
       json[titleColumns[j]] = data[row][j];
     };
 
@@ -68,15 +66,13 @@ function PredictAll(){
     json_send['annual_premium'] = json['annual_premium']
     json_send['policy_sales_channel'] = json['policy_sales_channel']
     json_send['vintage'] = json['vintage']
-    json_send['response'] = json['response']
 
     // Propensity score
-    pred = ApiCall( json_send, '/predict' );
+    pred = ApiCall(json_send, '/predict');
 
     // Send back to google sheets
-    ss.getRange( Number( row ) + 2 , 13 ).setValue( pred[0]['score'] )
-    Logger.log( pred[0]['score'] )
-    Logger.log( row )
+    ss.getRange( Number(row) + 2 , 12).setValue( pred[0]['prediction'])
+    Logger.log(pred[0]['prediction'])
+    Logger.log(row)
   };
 };
-
