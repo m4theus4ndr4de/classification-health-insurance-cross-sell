@@ -2,20 +2,20 @@
 
 <h1>Health Insurance Cross Sell</h1>
 
-<p>This is a fictional project for studying purposes. The business context and the insights are not real. 
+<p align="justify">This is a fictional project for studying purposes. The business context and the insights are not real. 
 The dataset is from a Health Insurance company that sells various kinds of insurance. The dataset is available on <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction" target="_blank">Kaggle</a>.</p>
 
 <h2>1. Description of the Business Problem</h2>
 
-<p>An insurance company sells health insurance to its customers. They want to start selling vehicle insurance to these customers in order to diversify their products. The company will call these customers and offer this new type of insurance. The company surveyed its customers to get some data from them and find out which ones would be interested in vehicle insurance to make a cross sell. The company has availability to make only two thousand calls. They believe that one of the ways to reach as many customers as possible with the least amount of calls is to make a machine learning model that sorts the list of customers to maximize the amount of contracted services. It is a type of classification problem called learn to rank.</p>
+<p align="justify">An insurance company sells health insurance to its customers. They want to start selling vehicle insurance to these customers in order to diversify their products. The company will call these customers and offer this new type of insurance. The company surveyed its customers to get some data from them and find out which ones would be interested in vehicle insurance to make a cross sell. The company has availability to make only two thousand calls. They believe that one of the ways to reach as many customers as possible with the least amount of calls is to make a machine learning model that sorts the list of customers to maximize the amount of contracted services. It is a type of classification problem called learn to rank.</p>
 
 <h3>The tools that were created:</h3>
 
-<p><b>Machine Learning Classification Model: </b>Using the dataset from <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction" target="_blank">Kaggle</a>, a machine learning classification model was created to be use for future predictions.</p>The notebook used to create the model is available <a href="https://github.com/m4theus4ndr4de/classification-health-insurance-cross-sell/blob/main/notebooks/model-development.ipynb" target="_blank">here</a>.</p>
+<p align="justify"><b>Machine Learning Classification Model: </b>Using the dataset from <a href="https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction" target="_blank">Kaggle</a>, a machine learning classification model was created to be use for future predictions.</p>The notebook used to create the model is available <a href="https://github.com/m4theus4ndr4de/classification-health-insurance-cross-sell/blob/main/notebooks/model-development.ipynb" target="_blank">here</a>.</p>
 
-<p><b>Flask Prediction API: </b>The model is available on the cloud Heroku and can be acessible by an API created using Flask. The API source code is available <a href="https://github.com/m4theus4ndr4de/classification-health-insurance-cross-sell/blob/main/health-insurance-app-ma/handler.py" target="_blank">here</a>.</p>
+<p align="justify"><b>Flask Prediction API: </b>The model is available on the cloud Heroku and can be acessible by an API created using Flask. The API source code is available <a href="https://github.com/m4theus4ndr4de/classification-health-insurance-cross-sell/blob/main/health-insurance-app-ma/handler.py" target="_blank">here</a>.</p>
 
-<p><b>Google Sheets Script: </b>A Google SHeets Script was developed to br used as a way to make predictions for several custumers at once. The spreadsheet is available <a href="https://docs.google.com/spreadsheets/d/1Rqe43njtijO54H-xon1Q3-XWC8ETXqPs3Qe4cGv3IhY/edit?usp=sharing" target="_blank">here</a>. There is a button on the top menu called "Health Insurance Prediction". To make predictions the user have to click there, click on "Get Prediction" and the predictions for all the rows in the spreadsheet will appear on the prediction column.</p>
+<p align="justify"><b>Google Sheets Script: </b>A Google SHeets Script was developed to br used as a way to make predictions for several custumers at once. The spreadsheet is available <a href="https://docs.google.com/spreadsheets/d/1Rqe43njtijO54H-xon1Q3-XWC8ETXqPs3Qe4cGv3IhY/edit?usp=sharing" target="_blank">here</a>. There is a button on the top menu called "Health Insurance Prediction". To make predictions the user have to click there, click on "Get Prediction" and the predictions for all the rows in the spreadsheet will appear on the prediction column.</p>
 
 <h2>2. Dataset Attributes</h2>
 
@@ -77,9 +77,9 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 
 <h2>6. Machine Learning Modeling</h2>
 
-<p>The final result of this project is a classification model to rank the table. Therefore, six models were created: KNN (K-Nearest Neighbors), Logistic Regression, Extra Trees, Random Forest, XGBoost and LightGBM.</p>
+<p align="justify">The final result of this project is a classification model to rank the table. Therefore, six models were created: KNN (K-Nearest Neighbors), Logistic Regression, Extra Trees, Random Forest, XGBoost and LightGBM.</p>
 
-<p>The Boruta algorithm was used to select features for the model and only one feature were selected by Boruta. The dataset features are not very good at explaining if the customers want or not a vehicle insurance. The features for the model were chosen based on the feature importance in an Extra Trees model, seven features were selected. 
+<p align="justify">The Boruta algorithm was used to select features for the model and only one feature were selected by Boruta. The dataset features are not very good at explaining if the customers want or not a vehicle insurance. The features for the model were chosen based on the feature importance in an Extra Trees model, seven features were selected. 
 The models were evaluated considering two metrics, Precision at K and Recall at K considering the two thousand first rows of the table the models should rank. The initial models performances are in the table below.</p>
 
 <table style="width:100%">
@@ -94,7 +94,7 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 
 <h2>7. Final Model</h2>
 
-<p>To decide which would be the final model, a cross-validation was carried out to evaluate the performance of the algorithms in a more robust way. These metrics are represented in the table below.</p>
+<p align="justify">To decide which would be the final model, a cross-validation was carried out to evaluate the performance of the algorithms in a more robust way. These metrics are represented in the table below.</p>
 
 <table style="width:100%">
 <tr><th>Model Name</th><th>Precision at K</th><th>Recall at K</th></tr>
@@ -106,7 +106,7 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 <tr><td>Logistic Regression CV</td><td>0.2958 +/- 0.0111</td><td>0.0792 +/- 0.0032</td></tr>
 </table>
 
-<p>The LightGBM model was the best among all the models created. It was the one selected to be deployed. After choosing which would be the final model, a random search hyperparameter optimization was used to improve the performance of the model. The final model evaluation metrics are in the table below.</p>
+<p align="justify">The LightGBM model was the best among all the models created. It was the one selected to be deployed. After choosing which would be the final model, a random search hyperparameter optimization was used to improve the performance of the model. The final model evaluation metrics are in the table below.</p>
 
 <table style="width:100%">
 <tr><th>Model Name</th><th>Precision at K</th><th>Recall at K</th></tr>
@@ -115,7 +115,7 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 
 <h2>8. Conclusion</h2>
 
-<p>Although the dataset is not very good at creating classification models to predict whether or not customers would like car insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
+<p align="justify">Although the dataset is not very good at creating classification models to predict whether or not customers would like car insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
 
 <h2>9. Future Work</h2>
 
