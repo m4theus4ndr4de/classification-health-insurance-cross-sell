@@ -1,4 +1,4 @@
-<img src="img/sales.jpg" alt="logo" style="zoom:100%;" />
+<img src="images/health-insurance.jpg" alt="logo" style="zoom:100%;" />
 
 <h1>Health Insurance Cross Sell</h1>
 
@@ -7,7 +7,7 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 
 <h2>1. Description of the Business Problem</h2>
 
-<p></p>
+<p>An insurance company sells health insurance to its customers. They want to start selling vehicle insurance to these customers in order to diversify their products. The company will call these customers and offer this new type of insurance. The company surveyed its customers to get some data from them and find out which ones would be interested in vehicle insurance to make a cross sell. The company has availability to make only two thousand calls. They believe that one of the ways to reach as many customers as possible with the least amount of calls is to make a machine learning model that sorts the list of customers to maximize the amount of contracted services. It is a type of classification problem called learn to rank.</p>
 
 <h3>The tools that were created:</h3>
 
@@ -42,10 +42,9 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 <h3>The premises that were assumed for the development of the business problem solution are:</h3>
 
 <ul>
+<li>Cross-selling is a sales technique that involves selling an additional product or service to an existing customer.</li>
+<li>Learn to rank is a kind of classification problem in which the objective is to order a datatable based on the probability of some data be of an specific class.</li>
 <li>There is no Policy Sales Channel better than others, they should have the same weight to the model prediction.</li>
-<li></li>
-<li></li>
-<li></li>
 </ul>
 
 <h2>4. Solution Strategy</h2>
@@ -65,42 +64,32 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 
 <h2>5. The Insights</h2>
 
-<p><b>I1:</b> Stores with greater assortments should sell more.</p>
-<p><b>True:</b> Stores with greater assortment sell more.</p>
-<p><b>I2:</b> Stores with closer competitors should sell less.</p>
-<p><b>False:</b> Stores with closer competitors sells almost the same average amount than the others.</p>
-<p><b>I3:</b> Stores that have a competitor for longer periods of time should sell more.</p>
-<p><b>False:</b> Stores with competitors for a longer time sell less.</p>
-<p><b>I4:</b> Stores with longer active promotions should sell more.</p>
-<p><b>False:</b> Store with longer promotions stop selling more after some time.</p>
-<p><b>I5:</b> Stores with more consecutive promotions should sell more.</p>
-<p><b>False:</b> Stores with more consecutive promotions sell less.</p>
-<p><b>I6:</b> Stores open during the Christmas holiday should sell more.</p>
-<p><b>False:</b> Stores open during Christmas don't sell more.</p>
-<p><b>I7:</b> Stores should sell more over the years.</p>
-<p><b>False:</b> Stores sell less over the years.</p>
-<p><b>I8:</b> Stores should sell more in the second half of the year.</p>
-<p><b>True:</b> The stores sell more in the second half of the year.</p>
-<p><b>I9:</b> Stores should sell more after the 10th of each month.</p>
-<p><b>True:</b> Stores really sell more after the 10th day of each month.</p>
-<p><b>I10:</b> Stores should sell less on weekends.</p>
-<p><b>True:</b> Saturday and Sun are the worst seling days.</p>
-<p><b>I11:</b> Stores should sell less during school holidays.</p>
-<p><b>True:</b> Stores sellless during school holiday except for the august.</p>
+<p><b>I1:</b> </p>
+<p><b>True:</b> </p>
+<p><b>I2:</b> </p>
+<p><b>False:</b> </p>
+<p><b>I3:</b> </p>
+<p><b>False:</b> </p>
+<p><b>I4:</b> </p>
+<p><b>False:</b> </p>
+<p><b>I5:</b> </p>
+<p><b>False:</b> </p>
 
 <h2>6. Machine Learning Modeling</h2>
 
-<p>The final result of this project is a regression model. So a few models were created as options. Therefore, some machine learning models were created. In all, 5 models were created, one of them is a simple model that calculates the average sales to serve as a comparison with machine learning models. The other models initially created were Linear Regression, Regularized Linear Regression, Random Forest and XGBoost.</p>
+<p>The final result of this project is a classification model to rank the table. Therefore, six models were created: KNN (K-Nearest Neighbors), Logistic Regression, Extra Trees, Random Forest, XGBoost and LightGBM.</p>
 
-<p>The Boruta algorithm was used to select features for the model and 18 features were selected to the final model. The models were evaluated considering three metrics, Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE) and Root Mean Squared Error (RMSE). The initial models performances are in the table below.</p>
+<p>The Boruta algorithm was used to select features for the model and only one feature were selected by Boruta. The dataset features are not very good at explaining if the customers want or not a vehicle insurance. The features for the model were chosen based on the feature importance in an Extra Trees model, seven features were selected. 
+The models were evaluated considering two metrics, Precision at K and Recall at K considering the two thousand first rows of the table the models should rank. The initial models performances are in the table below.</p>
 
 <table style="width:100%">
-<tr><th>Model Name</th><th>MAE</th><th>MAPE</th><th>RMSE</th></tr>
-<tr><td>Random Forest Regressor</td><td>680.19</td><td>0.10</td><td>1008.96</td></tr>
-<tr><td>XGBoost Regressor</td><td>874.26</td><td>0.13</td><td>1256.33</td></tr>
-<tr><td>Average Model</td><td>1354.80</td><td>0.46</td><td>1835.14</td></tr>
-<tr><td>Linear Regression</td><td>1867.09</td><td>0.29</td><td>2671.05</td></tr>
-<tr><td>Lasso</td><td>2198.58</td><td>0.34</td><td>3110.51</td></tr>
+<tr><th>Model Name</th><th>Precision at K</th><th>Recall at K</th></tr>
+<tr><td>LightGBM</td><td>0.4153</td><td>0.0895</td></tr>
+<tr><td>XGBoost</td><td>0.4078</td><td>0.0879</td></tr>
+<tr><td>Random Forest</td><td>0.3363</td><td>0.0725</td></tr>
+<tr><td>KNN</td><td>0.3338</td><td>0.0719</td></tr>
+<tr><td>Extra Trees</td><td>0.3288</td><td>0.0709</td></tr>
+<tr><td>Logistic Regression</td><td>0.3028</td><td>0.0653</td></tr>
 </table>
 
 <h2>7. Final Model</h2>
@@ -108,31 +97,30 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 <p>To decide which would be the final model, a cross-validation was carried out to evaluate the performance of the algorithms in a more robust way. These metrics are represented in the table below.</p>
 
 <table style="width:100%">
-<tr><th>Model Name</th><th>MAE</th><th>MAPE</th><th>RMSE</th></tr>
-<tr><td>Random Forest Regressor</td><td>837.52 +/- 216.76</td><td>0.12 +/- 0.02</td><td>1254.42 +/- 316.65</td></tr>
-<tr><td>XGBoost Regressor</td><td>1069.47 +/- 139.48</td><td>0.15 +/- 0.02</td><td>1523.41 +/- 182.76</td></tr>
-<tr><td>Linear Regression</td><td>2081.73 +/- 295.63</td><td>0.3 +/- 0.02</td><td>2952.52 +/- 468.37</td></tr>
-<tr><td>Lasso</td><td>2388.68 +/- 398.48</td><td>0.34 +/- 0.01</td><td>3369.37 +/- 567.55</td></tr>
+<tr><th>Model Name</th><th>Precision at K</th><th>Recall at K</th></tr>
+<tr><td>LightGBM CV</td><td>0.4222 +/- 0.0037</td><td>0.1128 +/- 0.0007</td></tr>
+<tr><td>XGBoost CV</td><td>0.4120 +/- 0.0055</td><td>0.1102 +/- 0.0013</td></tr>
+<tr><td>Random Forest CV</td><td>0.3526 +/- 0.0106</td><td>0.0942 +/- 0.0031</td></tr>
+<tr><td>KNN CV</td><td>0.3374 +/- 0.0059</td><td>0.0904 +/- 0.0015</td></tr>
+<tr><td>Extra Trees CV</td><td>0.3216 +/- 0.0039</td><td>0.0860 +/- 0.0011</td></tr>
+<tr><td>Logistic Regression CV</td><td>0.2958 +/- 0.0111</td><td>0.0792 +/- 0.0032</td></tr>
 </table>
 
-<p>The Random Forest model was the best among all the models created. However, XGBoost was chosen to be deployed because it tends to take up less disk space than Random Forest. After choosing which would be the final model, a random search hyperparameter optimization was used to improve the performance of the model. The final model evaluation metrics are in the table below.</p>
+<p>The LightGBM model was the best among all the models created. It was the one selected to be deployed. After choosing which would be the final model, a random search hyperparameter optimization was used to improve the performance of the model. The final model evaluation metrics are in the table below.</p>
 
 <table style="width:100%">
-<tr><th>Model Name</th><th>MAE</th><th>MAPE</th><th>RMSE</th></tr>
-<tr><td>XGBoost Regressor</td><td>653.39</td><td>0.10</td><td>956.03</td></tr>
+<tr><th>Model Name</th><th>Precision at K</th><th>Recall at K</th></tr>
+<tr><td>LightGBM</td><td>0.433 +/- 0.0067</td><td>0.1158 +/- 0.0018</td></tr>
 </table>
 
 <h2>8. Conclusion</h2>
 
-<p>The XGBoost prediction model was chosen because it can be trained faster than a Random Forest model using a GPU. The model used in deployment was not the best one, but it is considerably smaller than the others, because it has a smaller number of estimators, and the error metrics are not so distant from the best model. A chat bot that answears the income for the next 6 weeks was also developed to work like a hands on tool. Now, the CEO can have access easily to the income of each store by simple sending a message to the chat bot.</p>
+<p>Although the dataset is not very good at creating classification models to predict whether or not customers would like car insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
 
 <h2>9. Future Work</h2>
 
 <ul>
-<li>Develop some more features to the bot.</li>
-<li>Create an options menu to the Telegram Bot.</li>
-<li>Develop a model to determine the profit of the next day, month and year.</li>
 <li>Improve model prediction capabilities by adding new features.</li>
-<li>Search for stores with a high prediction error and find a way to enhance the predition of them.</li>
+<li>Explore the dataset to find more possible insights.</li>
 <li>Try other machine learning algorithms.</li>
 </ul>
