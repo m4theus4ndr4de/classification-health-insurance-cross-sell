@@ -115,7 +115,7 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 
 <h2>8. Conclusion</h2>
 
-<p align="justify">Although the dataset is not very good at creating classification models to predict whether or not customers would like car insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
+<p align="justify">Although the dataset is not very good at creating classification models to predict whether or not customers would like vehicle insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
 
 <h2>9. Future Work</h2>
 
