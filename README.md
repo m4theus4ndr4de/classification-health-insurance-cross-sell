@@ -62,20 +62,7 @@ The dataset is from a Health Insurance company that sells various kinds of insur
 <li>Find possible improvements to be explored in the future.</li>
 </ol>
 
-<h2>5. The Insights</h2>
-
-<p><b>I1:</b> </p>
-<p><b>True:</b> </p>
-<p><b>I2:</b> </p>
-<p><b>False:</b> </p>
-<p><b>I3:</b> </p>
-<p><b>False:</b> </p>
-<p><b>I4:</b> </p>
-<p><b>False:</b> </p>
-<p><b>I5:</b> </p>
-<p><b>False:</b> </p>
-
-<h2>6. Machine Learning Modeling</h2>
+<h2>5. Machine Learning Modeling</h2>
 
 <p align="justify">The final result of this project is a classification model to rank the table. Therefore, six models were created: KNN (K-Nearest Neighbors), Logistic Regression, Extra Trees, Random Forest, XGBoost and LightGBM.</p>
 
@@ -92,7 +79,7 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 <tr><td>Logistic Regression</td><td>0.3028</td><td>0.0653</td></tr>
 </table>
 
-<h2>7. Final Model</h2>
+<h2>6. Final Model</h2>
 
 <p align="justify">To decide which would be the final model, a cross-validation was carried out to evaluate the performance of the algorithms in a more robust way. These metrics are represented in the table below.</p>
 
@@ -113,14 +100,14 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 <tr><td>LightGBM</td><td>0.433 +/- 0.0067</td><td>0.1158 +/- 0.0018</td></tr>
 </table>
 
-<h2>8. Conclusion</h2>
+<h2>7. Conclusion</h2>
 
 <p align="justify">Although the dataset is not very good at creating classification models to predict whether or not customers would like vehicle insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
 
-<h2>9. Future Work</h2>
+<h2>8. Future Work</h2>
 
 <ul>
 <li>Improve model prediction capabilities by adding new features.</li>
-<li>Explore the dataset to find more possible insights.</li>
+<li>Explore the dataset to find possible insights.</li>
 <li>Try other machine learning algorithms.</li>
 </ul>
