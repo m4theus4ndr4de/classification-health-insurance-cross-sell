@@ -100,11 +100,15 @@ The models were evaluated considering two metrics, Precision at K and Recall at 
 <tr><td>LightGBM</td><td>0.433 +/- 0.0067</td><td>0.1158 +/- 0.0018</td></tr>
 </table>
 
-<h2>7. Conclusion</h2>
+<h2>7. Business Results</h2>
+
+The model, when applied to the initial dataset with 381,109 clients, would include 701 more clients that would want a vahicle insurance than picking 2000 clients randomly in the database. It would represent an increase of 297,03% in the number of sucessed calls.
+
+<h2>8. Conclusion</h2>
 
 <p align="justify">Although the dataset is not very good at creating classification models to predict whether or not customers would like vehicle insurance, a model was created that managed to sort the table better than a random sort. The model can help the company achieve a higher success rate when calling customers. However, it would be of great help to have more features to enhance the model predictability.</p>
 
-<h2>8. Future Work</h2>
+<h2>9. Future Work</h2>
 
 <ul>
 <li>Improve model prediction capabilities by adding new features.</li>
