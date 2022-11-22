@@ -7,7 +7,7 @@ function onOpen() {
 }
 
 // Production Server
-host_production = 'health-insurance-app-ma.herokuapp.com'
+host_production = 'https://health-insurance-app-ma.onrender.com'
 
 // API Call
 function ApiCall(data, endpoint){
